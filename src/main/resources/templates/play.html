@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Playing Blackjack</title>
-	<link rel="stylesheet" type="text/css" href="/styles.css"> <!-- CSSファイルのリンク -->
+    <title>Playing Blackjack</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
-
 <body>
-	<h1>Game in Progress...</h1>
-	<form action="/stay" method="get">
-		<button type="submit" class="large-button">Stay</button> <!-- large-buttonクラスを適用したボタン -->
-	</form>
-	<form action="/add" method="get">
-		<button type="submit" class="large-button">Add Card</button> <!-- large-buttonクラスを適用したボタン -->
-	</form>
+    <h1>Game in Progress...</h1>
+    <div class="button-container"> <!-- ボタンを横に並べるためのコンテナ -->
+        <form action="/stay" method="get" class="button-form">
+            <button type="submit" class="large-button">Stay</button>
+        </form>
+        <form action="/add" method="get" class="button-form">
+            <button type="submit" class="large-button">Add Card</button>
+        </form>
+        <form action="/lose" method="get" class="button-form">
+            <button type="submit" class="large-button">Lose</button>
+        </form>
+    </div>
 </body>
-
 </html>

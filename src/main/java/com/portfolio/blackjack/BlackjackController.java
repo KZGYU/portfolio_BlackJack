@@ -5,6 +5,9 @@ package com.portfolio.blackjack;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+
+
 @Controller
 public class BlackjackController {
 
@@ -33,4 +36,10 @@ public class BlackjackController {
 		// 実際のゲームロジックはここに実装します
 		return "play"; // ゲーム続行の画面を表示
 	}
+	
+    @GetMapping("/lose")
+    public String lose() {
+        return "lose"; // 敗北画面に遷移
+    }
+	
 }
