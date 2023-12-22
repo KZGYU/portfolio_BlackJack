@@ -1,34 +1,59 @@
 @charset "UTF-8";
+
 .large-button {
-    width: 150px;      /* ボタンの幅 */
-    height: 50px;      /* ボタンの高さ */
-    font-size: 20px;   /* テキストのサイズ */
-    margin: 10px;      /* マージン */
+	width: 150px;
+	/* ボタンの幅 */
+	height: 50px;
+	/* ボタンの高さ */
+	font-size: 20px;
+	/* テキストのサイズ */
+	margin: 10px;
+	/* マージン */
 }
 
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
+	text-align: center;
+	font-family: Arial, sans-serif;
 }
 
 h1 {
-    color: red;
+	color: red;
 }
 
 a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f8f8f8;
-    text-decoration: none;
-    color: black;
-    border: 1px solid #ddd;
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: #f8f8f8;
+	text-decoration: none;
+	color: black;
+	border: 1px solid #ddd;
 }
+
 .button-container {
-    text-align: center;
+	text-align: center;
 }
 
 .button-form {
-    display: inline-block; /* フォームをインラインブロック要素として表示 */
-    margin: 5px; /* ボタンの間にマージンを設定 */
+	display: inline-block;
+	/* フォームをインラインブロック要素として表示 */
+	margin: 5px;
+	/* ボタンの間にマージンを設定 */
+}
+
+.card-container {
+	text-align: center;
+}
+
+.card-row {
+	margin: 10px;
+}
+
+img {
+	width: 100px;
+	/* カードの幅を調整 */
+	height: 150px;
+	/* カードの高さを調整 */
+	margin: 5px;
+	/* カード間のマージン */
 }
