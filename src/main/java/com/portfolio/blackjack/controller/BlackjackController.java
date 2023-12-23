@@ -1,60 +1,55 @@
 package com.portfolio.blackjack.controller;
 
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;  // 正しいModelクラスをインポート
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.portfolio.blackjack.entity.Card;
-import com.portfolio.blackjack.service.CardService;  // CardServiceをインポート
+import com.portfolio.blackjack.service.CardService;
 
 @Controller
 public class BlackjackController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(BlackjackController.class);
-	
-    private final CardService cardService;  // インスタンス変数名を統一
 
-    // コンストラクタ...
-    public BlackjackController(CardService cardService) {
-        this.cardService = cardService;  // コンストラクタのパラメータ名とインスタンス変数名を統一
-    }	   
+	private final CardService cardService;
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
+	public BlackjackController(CardService cardService) {
+		this.cardService = cardService;
+	}
 
-    @GetMapping("/start")
-    public String startGame() {
-        return "play";
-    }
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
 
-    @GetMapping("/play")
-    public String play(Model model) {
-        List<Card> cards = cardService.findAllCards();
-        logger.info("Retrieved cards: {}", cards); // ログ出力
-        model.addAttribute("cards", cards);
-        return "play";
-    }
-    
-    @GetMapping("/stay")
-    public String stay() {
-        // ゲームのロジックをここに実装
-        return "win"; // または "lose"
-    }
+	// スタートボタンを押した後の処理
+	@GetMapping("/start")
+	public String startGame(Model model) {
+		// カード情報を取得してモデルに追加
+		model.addAttribute("cards", cardService.findAllCards());
+		return "play"; // playビューに遷移
+	}
 
-    @GetMapping("/add")
-    public String addCard() {
-        // カードを追加するロジックをここに実装
-        return "play";
-    }
-    
-    @GetMapping("/lose")
-    public String lose() {
-        return "lose"; // 敗北画面に遷移
-    }
+	// ゲーム中の処理（カードを追加するなど）
+	@GetMapping("/play")
+	public String play(Model model) {
+		// すべてのカードを取得してモデルに追加
+		model.addAttribute("cards", cardService.findAllCards());
+		return "play";
+	}
+
+	@GetMapping("/stay")
+	public String stay() {
+		// ゲームのロジックをここに実装
+		return "win"; // または "lose"
+	}
+
+	@GetMapping("/add")
+	public String addCard() {
+		// カードを追加するロジックをここに実装
+		return "play";
+	}
+
+	@GetMapping("/lose")
+	public String lose() {
+		return "lose"; // 敗北画面に遷移
+	}
 }

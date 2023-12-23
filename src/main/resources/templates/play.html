@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Playing Blackjack</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- CSSファイルのリンク -->
+	<title>Playing Blackjack</title>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
+
 <body>
-    <h1>Game in Progress...</h1>
-    <div th:if="${cards != null and cards.size() > 0}" class="card-container">
-        <div class="card-row">
-            <!-- 上側の2枚のカード -->
-            <img th:if="${cards.size() > 0}" th:src="@{'/images/' + ${cards[0].image}}" />
-            <img th:if="${cards.size() > 1}" th:src="@{'/images/' + ${cards[1].image}}" />
-        </div>
-        <div class="card-row">
-            <!-- 下側の2枚のカード -->
-            <img th:if="${cards.size() > 2}" th:src="@{'/images/' + ${cards[2].image}}" />
-            <img th:if="${cards.size() > 3}" th:src="@{'/images/' + ${cards[3].image}}" />
-        </div>
-    </div>
-    <div th:unless="${cards != null and cards.size() > 0}">
-        <p>No cards to display.</p>
-    </div>
-    <div class="button-container"> <!-- ボタンを横に並べるためのコンテナ -->
-        <!-- ボタンのフォーム -->
-    </div>
+
+	<h1>Game in Progress...</h1>
+	
+	<div class="button-container"> <!-- ボタンを横に並べるためのコンテナ -->
+		<form action="/stay" method="get" class="button-form">
+			<button type="submit" class="large-button">Stay</button>
+		</form>
+		<form action="/add" method="get" class="button-form">
+			<button type="submit" class="large-button">Add Card</button>
+		</form>
+		<form action="/lose" method="get" class="button-form">
+			<button type="submit" class="large-button">Lose</button>
+		</form>
+
+
+		<div th:if="${cards != null and cards.size() > 0}" class="card-container">
+			<div class="card-row">
+				<!-- 上側の2枚のカード -->
+				<img th:if="${cards.size() > 0}" th:src="@{'/images/' + ${cards[0].image}}" />
+				<img th:if="${cards.size() > 1}" th:src="@{'/images/' + ${cards[1].image}}" />
+			</div>
+			<div class="card-row">
+				<!-- 下側の2枚のカード -->
+				<img th:if="${cards.size() > 2}" th:src="@{'/images/' + ${cards[2].image}}" />
+				<img th:if="${cards.size() > 3}" th:src="@{'/images/' + ${cards[3].image}}" />
+			</div>
+		</div>
+		<div th:unless="${cards != null and cards.size() > 0}">
+			<p>No cards to display.</p>
+		</div>
+		<div class="button-container"> <!-- ボタンを横に並べるためのコンテナ -->
+			<!-- ボタンのフォーム -->
+		</div>
 </body>
+
 </html>
