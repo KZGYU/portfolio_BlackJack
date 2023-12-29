@@ -46,14 +46,46 @@ a {
 }
 
 .card-row {
-	margin: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 img {
-	width: 100px;
-	/* カードの幅を調整 */
-	height: 150px;
-	/* カードの高さを調整 */
-	margin: 5px;
-	/* カード間のマージン */
+	width: 100px;/* カードの幅を調整 */
+	height: 150px;/* カードの高さを調整 */
+	margin: 5px;/* カード間のマージン */
+	
+}
+
+/* プレイヤーのカードの位置を調整 */
+.player-cards img {
+    margin-top: 200px; /* 上側の余白を増やして下に移動 */
+}
+
+/* プレイヤーのヘッダーのスタイルを調整 */
+h2.player-header {
+    margin-top: 20px; /* カードの下に余白を追加 */
+}
+
+/* カードの下にプレイヤーのヘッダーを表示するためのスタイル */
+.player-cards + h2 {
+    padding-top: 10px; /* カードの下の余白を増やす */
+}
+
+
+.center-line  {
+    padding-top: 10px; /* 中央線の下の余白を増やす */
+	height: 2px;
+	/* 線の太さ */
+	background-color: #000;
+	/* 線の色 */
+	margin: 20px 0;
+	/* 上下の余白 */
+}
+
+.card{
+	display: inline-block;
+	margin:5px;
+	
 }

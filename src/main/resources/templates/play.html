@@ -9,7 +9,7 @@
 <body>
 
 	<h1>Game in Progress...</h1>
-	
+
 	<div class="button-container"> <!-- ボタンを横に並べるためのコンテナ -->
 		<form action="/stay" method="get" class="button-form">
 			<button type="submit" class="large-button">Stay</button>
@@ -17,29 +17,35 @@
 		<form action="/add" method="get" class="button-form">
 			<button type="submit" class="large-button">Add Card</button>
 		</form>
-		<form action="/lose" method="get" class="button-form">
-			<button type="submit" class="large-button">Lose</button>
-		</form>
-
-
-		<div th:if="${cards != null and cards.size() > 0}" class="card-container">
+		
+		<!-- ディーラーのカードを表示 -->
+		<div th:if="${dealerCards != null}" class="card-container">
+			<h2>DEALER</h2>
 			<div class="card-row">
-				<!-- 上側の2枚のカード -->
-				<img th:if="${cards.size() > 0}" th:src="@{'/images/' + ${cards[0].image}}" />
-				<img th:if="${cards.size() > 1}" th:src="@{'/images/' + ${cards[1].image}}" />
+				<!-- ディーラーのカードをループで表示 -->
+				<div th:each="card : ${dealerCards}">
+					<img th:src="@{${card.image}}" />
+				</div>
 			</div>
-			<div class="card-row">
-				<!-- 下側の2枚のカード -->
-				<img th:if="${cards.size() > 2}" th:src="@{'/images/' + ${cards[2].image}}" />
-				<img th:if="${cards.size() > 3}" th:src="@{'/images/' + ${cards[3].image}}" />
+			<div class="center-line"></div> <!-- 中央線の追加 -->
+		</div>
+
+		<!-- プレイヤーのカードを表示 -->
+		<div th:if="${playerCards != null}" class="card-container">
+			<h2 class="player-header">PLAYER</h2>
+			<div class="card-row player-cards">
+				<!-- プレイヤーのカードをループで表示 -->
+				<div th:each="card : ${playerCards}">
+					<img th:src="@{${card.image}}" />
+				</div>
 			</div>
 		</div>
-		<div th:unless="${cards != null and cards.size() > 0}">
+
+		<div th:unless="${dealerCards != null and playerCards != null}">
 			<p>No cards to display.</p>
 		</div>
-		<div class="button-container"> <!-- ボタンを横に並べるためのコンテナ -->
-			<!-- ボタンのフォーム -->
-		</div>
+
+
 </body>
 
 </html>

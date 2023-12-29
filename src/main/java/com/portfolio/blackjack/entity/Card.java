@@ -33,6 +33,7 @@ public class Card {
 
     @Column(name = "no")
     private Integer no; // カードの数字 (1～13)
+    
 
     @Column(name = "type")
     private Integer type; // カードの種類 (1:ダイヤ、2:ハート、3:クラブ、4:スペード)
